@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("********** PETSHOP DA RD **********");
+        /*
+            nome, idade, raca, peso, cor, dono, vacinado, serviços
+        */
+        var cachorro = {
+            nome: "Doguinho",
+            idade: 8,
+            raca: "Vira-lata",
+            peso: 15.3,
+            cor: "Caramelo",
+            dono: "Karina", 
+            vacinado: false,
+            servicos: ["Tosa", "Banho"]
+        }
+
+        function vacinar(cachorro){
+           if(!cachorro.vacinado){
+                cachorro.vacinado=true;
+           }
+           console.log( cachorro.nome + " vacinado");
+            //vacinado ? return ("Cachorro já está vacinado") : vacinado=true;
+        }
+    </script>
+</body>
+</html>
