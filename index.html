@@ -8,28 +8,75 @@
 </head>
 <body>
     <script>
-        console.log("********** PETSHOP DA RD **********");
-        /*
-            nome, idade, raca, peso, cor, dono, vacinado, serviços
-        */
-        var cachorro = {
-            nome: "Doguinho",
-            idade: 8,
-            raca: "Vira-lata",
-            peso: 15.3,
-            cor: "Caramelo",
-            dono: "Karina", 
-            vacinado: false,
-            servicos: ["Tosa", "Banho"]
-        }
+        
+        const EMPRESA="********** PETSHOP DA RD **********";
 
-        function vacinar(cachorro){
+        console.log(EMPRESA);         
+
+        let pets=[];
+        
+        const vacinar = cachorro =>{
            if(!cachorro.vacinado){
                 cachorro.vacinado=true;
            }
            console.log( cachorro.nome + " vacinado");
-            //vacinado ? return ("Cachorro já está vacinado") : vacinado=true;
         }
+
+        const adicionarPet = (nome, idade, raca, tipo, peso, cor, dono, vacinado, servicos)=>{
+            let addPet={
+                nome,
+                idade,
+                raca,
+                tipo,
+                peso,
+                cor,
+                dono:{nome:null, idade:null},
+                vacinado,
+                servicos
+            }
+
+            pets.push(addPet);
+                 
+            console.log("Pet adicionado com sucesso");
+        }
+
+        const exibirPets = () => {
+            pets.forEach((pet, index)=>{ //aqui usei uma funcao anonima
+                console.log("----------- Pets -----------");
+                console.log("Nome do pet: "+pet.nome);
+                console.log("Tipo do pet: "+pet.tipo);
+                console.log(pet.vacinado ? "Esse pet já tomou suas vacinas!" : "Esse pet ainda precisa ser vacinado!");
+            })
+        }
+
+        exibirPets();
+
+        
+        /*const exibeGatos=()=>{
+            let gatos=[];
+            pets.forEach((pet, index)=>{
+            if(pet.tipo=="Gato"){
+                gatos.push(pet);
+            }
+        })
+        return gatos;
+        };*/
+
+        const filtrarPetsGatos  = () =>{
+            let listaPetsGatos = pets.filter(function(pet, index){
+                return pet.tipo=="Gato";
+            })
+            return listaPetsGatos;
+        }
+
+        const vacinarTodos = () =>{
+            let retorno = pets.map(function(pet, index){
+                pet.vacinado=true;
+                return pet;
+            })
+            return retorno;
+        }
+
     </script>
 </body>
 </html>
